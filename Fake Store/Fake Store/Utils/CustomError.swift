@@ -8,7 +8,7 @@
 import Foundation
 
 enum CustomError {
-    case noConnection, noData
+    case noConnection, noData, noFile
 }
 
 extension CustomError: LocalizedError {
@@ -16,6 +16,7 @@ extension CustomError: LocalizedError {
         switch self {
         case .noData: return "No existe información"
         case .noConnection: return "No hay conexión a internet"
+        case .noFile: return "No existe el archivo plist"
         }
     }
 }

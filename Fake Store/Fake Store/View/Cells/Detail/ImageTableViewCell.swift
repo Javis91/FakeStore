@@ -8,16 +8,16 @@
 import UIKit
 
 class ImageTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var productImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
+    func configure(with url: String?) {
+        guard let urlString = url,
+        let imageURL = URL(string: urlString) else { return }
+        self.productImage.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "placeHolder"))
+    }
 }
